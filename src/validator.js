@@ -1,20 +1,20 @@
 const validator = {
 
-   isValid:(card)=>{
-    let nCard = card.split("").reverse();
+  isValid:(card)=>{
+    const nCard = card.split("").reverse();
     let rescard = 0;
 
     for(let i = 0; i<nCard.length; i++){
-      let num1Card = parseInt(nCard[i]);
+      const num1Card = parseInt(nCard[i]);
 
-      if (i % 2 !== 0 && nCard >=5)
-      rescard = rescard + (nCard * 2) -9;
+      if (i % 2 !== 0 && num1Card >=5) {
+        rescard = rescard + (num1Card * 2) -9;}
 
-      else if (i % 2 !== 0 && nCard < 5)
-      rescard = rescard + (nCard * 2);
+      else if (i % 2 !== 0 && num1Card < 5){
+        rescard = rescard + (num1Card * 2);}
 
       else {
-        rescard = rescard + nCard;
+        rescard = rescard + num1Card;
       }
     }
 
@@ -27,9 +27,13 @@ const validator = {
   },
 
   maskify: function(card1){
-    return card1.replace( )
+    const x = card1.split(''); 
+    for (let i=0; i< x.length - 4; i++){
+      x[i] = "#";
+    }
+    const maskedCard = x.join('');
+    return maskedCard
   }
-
 }
 
 export default validator;
